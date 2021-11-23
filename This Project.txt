@@ -1,0 +1,15 @@
+When I was a young mother, I took a parenting course in the Sheffer Approach. This
+education philosophy believes that the child usually adapts his behavior to the
+expectations of his parents.
+I found myself tired in front of my son, in the middle of the night, trying to figure
+out if my expectations of him were realistic and good for him or not. Over time, I
+formulated some self-questions on this topic, and after I come up with the answers for them,
+I would memorize the statements, which I now recommend in this project.
+____________________________________________
+When I found myself missing writing code and felt ready to find a career in
+software development, I started studying Python and this project is a product
+of the first phase of this self-study.
+
+I am hope you enjoy and benefit from this project :)
+
+Fridi
