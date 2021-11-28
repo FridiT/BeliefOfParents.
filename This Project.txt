@@ -11,5 +11,4 @@ software development, I started studying Python and this project is a product
 of the first phase of this self-study.
 
 I am hope you enjoy and benefit from this project :)
-
 Fridi
