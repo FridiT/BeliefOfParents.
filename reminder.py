@@ -1,4 +1,4 @@
-# Import the required libraries and classes
+# Import the required libraries and classes.
 from tkinter import *
 from idlelib.tooltip import Hovertip
 
