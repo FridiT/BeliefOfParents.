@@ -36,8 +36,7 @@ class AskUser:
         def beginning():
             self.master.status = "a_parent"
             ask_window.destroy()
-            self.master.ga.gender_and_age()
-            # self.gender_and_age()
+            self.master.ga.gender_and_name()
 
         Label(ask_window, text="").grid(row=1, columnspan=2)
         Button(ask_window, text="Yes", font=('Helvetica bold', 11), padx=35, pady=1,

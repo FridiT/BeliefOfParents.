@@ -1,7 +1,7 @@
 # Import the required library and classes
 from tkinter import *
 from about import About
-from gender_and_age import GenderAge
+from gender_and_name import GenderName
 from a_parent import Parent
 from reminder import Reminder
 from ask_user import AskUser
@@ -14,7 +14,7 @@ class Menu:
         self._status = ""
         self._about_what = ""
         self.re = Reminder(self, self.status)
-        self.ga = GenderAge(self)
+        self.ga = GenderName(self)
         self.pa = Parent(master, self.ga)
 
     # Using @property decorator for an important variables
@@ -69,14 +69,11 @@ class Menu:
 
     def begin(self):
         self.status = "a_parent"
-        self.ga.gender_and_age()
+        self.ga.gender_and_name()
 
     def click_button_to_reminder(self):
         self.status = "reminder"
-        self.ga.gender_and_age()
-        # re = Reminder(self, self.status)
-        #  if not self.window_open or self.ga.finish:
-        #     self.re.reminder(self.ga)
+        self.ga.gender_and_name()
 
     # Call to class About and open the about window
     def call_about(self):
@@ -106,10 +103,4 @@ def main():
 if __name__ == '__main__':
     main()
     mainloop()
-"""
-main = Tk()
-m = Menu(main)
-m.open_main_window()
-mainloop()
-"""
 

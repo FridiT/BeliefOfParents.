@@ -11,7 +11,7 @@ class Reminder:
     def reminder(self, ga):
         rem = Toplevel()
         rem.grab_set()
-        if ga.gender == "my child" or ga.gender == "my baby":
+        if ga.gender == "my child":
             rem.geometry("333x225")
         else:
             rem.geometry("250x227")
