@@ -4,18 +4,17 @@ from reminder import Reminder
 from a_parent import Parent
 
 
-class GenderName:
+class Child:
+    # implementation a Singleton design pattern on Child Class
+    _the_gander = "gender"
+
     def __init__(self, main_win):
         self.master = main_win
         self._name = ""
-        self.the_gender = "gender"
-        self.gender = "your child"
-        self.gender_first = ""
-        self.belong = "his"
-        self.to_ = "him"
-        self.get_gender = False
-        self.get_name = False
-        self.finish = False
+        self.the_gender = ""
+        self.gender, self.gender_first = "your child", ""
+        self.belong, self.to_ = "his", "him"
+        self.get_gender = self.get_name = self.finish = False
         self.bu = Button()
 
     # Using @property decorator for an important variables
@@ -28,41 +27,50 @@ class GenderName:
         value = (value.lower()).capitalize()
         self._name = value
 
+    @property
+    def the_gender(self):
+        return Child._the_gander
+
+    @the_gender.setter
+    def the_gender(self, value):
+        Child._the_gander = value
+
+    # implementation a Singleton design pattern on Child Class
+    """       
+                if Child._the_gander not in {"gender", ""}:
+                    text = f'''This class is a singleton class!\nTherefore, we already have the child gender details saved,
+                    you can proceed to the next step'''
+                    from tkinter import messagebox
+                    messagebox.showinfo('Singleton', text)
+                    raise Exception("")
+                else:
+        """
+
     def attribute_of_gender(self):
+        # gender first, improve to use with capitalize
         if str(self.the_gender) == "boy":
-            self.gender = "he"
-            self.gender_first = "He"
-            self.belong = "his"
-            self.to_ = "him"
+            self.gender, self.gender_first, self.belong, self.to_ = "he", "He", "his", "him"
         elif str(self.the_gender) == "girl":
-            self.gender = "she"
-            self.gender_first = "She"
+            self.gender_first, self.gender = "She", "she"
             self.belong = self.to_ = "her"
         else:
-            self.gender = "my child"
-            self.gender_first = "My child"
+            self.gender_first, self.gender = "My child", "my child"
 
     def gender_and_name(self):
-        self.get_name = False
-        gender_window = Toplevel()
-        gender_window.grab_set()
-        gender_window.geometry("333x245")
-        gender_window.resizable(False, False)
-        gender_window.title("Some technical details:")
-        Label(gender_window, text="Do you have a girl or a boy?", font=('Helvetica bold', 14), padx=50, pady=13,
-              background="#34A2FE", borderwidth=5).grid(row=0, column=0, columnspan=2)
-
         def select_gander():
-            self.attribute_of_gender()
             if str(v.get()) != "chil":
                 self.the_gender = str(v.get())
+                self.attribute_of_gender()
                 self.get_gender = True
                 if self.get_name is True and self.get_gender is True:
                     Button(gender_window, text="I finished", background="#34A2FE", font=('Helvetica bold', 11), padx=35,
                            pady=1, command=fin).grid(row=5, column=0, columnspan=2, sticky="we")
                     self.finish = True
                 else:
-                    check_name()
+                    if len(entry_name.get()) != 0 and self.get_name:
+                        check_name()
+            else:
+                self.attribute_of_gender()
 
         def check_name():
             name = entry_name.get()
@@ -109,6 +117,15 @@ class GenderName:
                 elif self.master.status == "a_parent":
                     pa = Parent(self.master, self)
                     pa.a_parent()
+
+        self.get_name = False
+        gender_window = Toplevel()
+        gender_window.grab_set()
+        gender_window.geometry("333x245")
+        gender_window.resizable(False, False)
+        gender_window.title("Some technical details:")
+        Label(gender_window, text="Do you have a girl or a boy?", font=('Helvetica bold', 14), padx=50, pady=13,
+              background="#34A2FE", borderwidth=5).grid(row=0, column=0, columnspan=2)
 
         v = gender_window.var = StringVar()
         v.set("chil")

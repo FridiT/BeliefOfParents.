@@ -1,10 +1,10 @@
 # Import the required library and classes
 from tkinter import *
-from about import About
-from gender_and_name import GenderName
+from about import AboutMe, AboutThisProject, AboutSheferApproach
+from child import Child
 from a_parent import Parent
 from reminder import Reminder
-from ask_user import AskUser
+from if_a_parent import IfAParent
 
 
 class Menu:
@@ -14,8 +14,8 @@ class Menu:
         self._status = ""
         self._about_what = ""
         self.re = Reminder(self, self.status)
-        self.ga = GenderName(self)
-        self.pa = Parent(master, self.ga)
+        self.ch = Child(self)
+        self.pa = Parent(master, self.ch)
 
     # Using @property decorator for an important variables
     @property
@@ -51,7 +51,7 @@ class Menu:
         Button(master, text="I want to start from the beginning", font=('Helvetica bold', 11), padx=45, pady=30,
                command=self.click_button_starting_parent).grid(row=1, column=0)
         Button(master, text="I'm here again and need you", font=('Helvetica bold', 11), padx=45, pady=30,
-               command=self.begin).grid(row=1, column=1)
+               command=self.click_button_to_begin).grid(row=1, column=1)
         Button(master, text="I just need a little reminder", font=('Helvetica bold', 11), padx=52, pady=30,
                command=self.click_button_to_reminder).grid(row=1, column=2)
         Button(master, text="About Shefer Approach", font=('Helvetica bold', 11), padx=75, pady=30,
@@ -64,33 +64,29 @@ class Menu:
     # Setting the click function
     def click_button_starting_parent(self):
         self.status = "from_beginning"
-        a = AskUser(self)
+        a = IfAParent(self)
         a.ask_user()
 
-    def begin(self):
+    def click_button_to_begin(self):
         self.status = "a_parent"
-        self.ga.gender_and_name()
+        self.ch.gender_and_name()
 
     def click_button_to_reminder(self):
         self.status = "reminder"
-        self.ga.gender_and_name()
+        self.ch.gender_and_name()
 
-    # Call to class About and open the about window
-    def call_about(self):
-        ab = About()
-        ab.about(self.about_what)
+    # Call to About class and open the about window
+    def click_button_about_me(self):
+        about = AboutMe()
+        about.make_a_window()
 
     def click_button_about_shefer_approach(self):
-        self.about_what = "Shefer Approach"
-        self.call_about()
+        about = AboutSheferApproach()
+        about.make_a_window()
 
     def click_button_about_project(self):
-        self.about_what = "This Project"
-        self.call_about()
-
-    def click_button_about_me(self):
-        self.about_what = "Me"
-        self.call_about()
+        about = AboutThisProject()
+        about.make_a_window()
 
 
 # Main
@@ -103,4 +99,3 @@ def main():
 if __name__ == '__main__':
     main()
     mainloop()
-
