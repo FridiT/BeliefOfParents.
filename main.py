@@ -8,6 +8,7 @@ from if_a_parent import IfAParent
 
 
 class Menu:
+    # constructor
     def __init__(self, master):
         # Setting a variables that I use in all the program
         self.master = master
@@ -75,17 +76,26 @@ class Menu:
         self.status = "reminder"
         self.ch.gender_and_name()
 
+    # Factory Method to create a about window
+    def factory(self, about_="This Project"):
+        about_option = {
+            "Me": AboutMe,
+            "This Project": AboutThisProject,
+            "Shefer Approach": AboutSheferApproach,
+        }
+        return about_option[about_]()
+
     # Call to About class and open the about window
     def click_button_about_me(self):
-        about = AboutMe()
+        about = self.factory("Me")
         about.make_a_window()
 
     def click_button_about_shefer_approach(self):
-        about = AboutSheferApproach()
+        about = self.factory("Shefer Approach")
         about.make_a_window()
 
     def click_button_about_project(self):
-        about = AboutThisProject()
+        about = self.factory("This Project")
         about.make_a_window()
 
 

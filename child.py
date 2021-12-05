@@ -8,6 +8,7 @@ class Child:
     # implementation a Singleton design pattern on Child Class
     _the_gander = "gender"
 
+    # constructor
     def __init__(self, main_win):
         self.master = main_win
         self._name = ""
@@ -90,7 +91,7 @@ class Child:
                           background="#34A2FE", borderwidth=7).grid(row=3, column=0, columnspan=2, sticky="we")
                 else:
                     self.name = name
-                    msg = self.name + ' is a valid name'
+                    msg = f'{self.name} is a valid name'
                     self.get_name = True
                     Label(gender_window, text=msg, font=('Helvetica bold', 14), padx=50, pady=13,
                           background="#34A2FE", borderwidth=7).grid(row=3, column=0, columnspan=2, sticky="we")

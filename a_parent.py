@@ -4,7 +4,7 @@ from reminder import Reminder
 
 
 class Parent:
-    # Setting the parent attributes
+    # constructor. Setting the parent attributes
     def __init__(self, master, ga):
         self.master = master
         self.ga = ga
@@ -39,7 +39,7 @@ class Parent:
         len_of_problem = int(len(self.optionalProblemAndSolution))
         while index < len_of_problem:
             the_problem = self.optionalProblemAndSolution[index]
-            problem = "Is " + self.ga.name + " " + the_problem + "?"
+            problem = f"Is {self.ga.name} {the_problem}?"
             Label(label0, text=problem, pady=7, padx=5, background="#34A2FE",
                   font=("black", 11)).grid(row=index, column=0, sticky="W")
             index += 1
@@ -115,26 +115,26 @@ class Parent:
         if self.get_thirst is True and self.get_hungry is True and self.get_dirty is True:
             self.ready = True
             if self.hungry is False and self.dirty is False and self.thirst is False:
-                text_conclusion = " WOW. " + self.ga.name + " really ready to sleep!!"
+                text_conclusion = f"WOW. {self.ga.name} really ready to sleep!!"
                 text_finish = "I'm ready to the next level"
             elif self.hungry is True and self.dirty is True and self.thirst is True:
-                text_finish = "I took care of " + self.ga.name + ", " + self.ga.gender + " is ready for sleep!"
-                text_conclusion = "Hemm, you should check again if " + self.ga.name + " is ready to sleep..."
+                text_finish = f"I took care of {self.ga.name}, {self.ga.gender} is ready for sleep!"
+                text_conclusion = f"Hemm, you should check again if {self.ga.name} is ready to sleep..."
             else:
-                text_finish = "I followed the recommendations, " + self.ga.name + " is ready for sleep!"
+                text_finish = f"I followed the recommendations, {self.ga.name} is ready for sleep!"
                 text_conclusion = "OK. Here is the answer: "
                 if self.hungry is True:
-                    text_conclusion += "Give " + self.ga.to_ + " to eat"
+                    text_conclusion += f"Give {self.ga.to_} to eat"
                     if self.thirst is True:
                         text_conclusion += " and drink"
                     elif self.dirty is True:
-                        text_conclusion = "OK, give " + self.ga.to_ + " to eat and clean " + self.ga.to_
+                        text_conclusion = f"OK, give {self.ga.to_} to eat and clean {self.ga.to_}"
                 elif self.dirty is True:
-                    text_conclusion = "Please clean " + self.ga.to_
+                    text_conclusion = f"Please clean {self.ga.to_}"
                     if self.thirst is True:
-                        text_conclusion += " and give " + self.ga.to_ + " to drink"
+                        text_conclusion += f" and give {self.ga.to_} to drink"
                 elif self.thirst is True:
-                    text_conclusion += "give " + self.ga.to_ + " to drink"
+                    text_conclusion += f"give {self.ga.to_} to drink"
             label1.destroy()
             label_con = LabelFrame(label0, text=text_conclusion, width=400, height=100,
                                    font=("black", 13))

@@ -3,6 +3,7 @@ from tkinter import *
 
 
 class IfAParent:
+    # constructor
     def __init__(self, master):
         self.question = "Do you have a child?"
         self.master = master
