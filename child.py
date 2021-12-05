@@ -36,6 +36,27 @@ class Child:
     def the_gender(self, value):
         Child._the_gander = value
 
+    @staticmethod
+    def is_boy():
+        if Child._the_gander == "boy":
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def is_girl():
+        if Child._the_gander == "girl":
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def is_a_binary():
+        if Child._the_gander == "child":
+            return True
+        else:
+            return False
+
     # implementation a Singleton design pattern on Child Class
     """       
                 if Child._the_gander not in {"gender", ""}:
@@ -49,12 +70,12 @@ class Child:
 
     def attribute_of_gender(self):
         # gender first, improve to use with capitalize
-        if str(self.the_gender) == "boy":
+        if self.is_boy():
             self.gender, self.gender_first, self.belong, self.to_ = "he", "He", "his", "him"
-        elif str(self.the_gender) == "girl":
+        elif self.is_girl():
             self.gender_first, self.gender = "She", "she"
             self.belong = self.to_ = "her"
-        else:
+        elif self.is_a_binary():
             self.gender_first, self.gender = "My child", "my child"
 
     def gender_and_name(self):

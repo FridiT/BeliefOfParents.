@@ -76,7 +76,7 @@ class Menu:
         self.status = "reminder"
         self.ch.gender_and_name()
 
-    # Factory Method to create a about window
+    # Class method- Factory Method to create a about window
     @classmethod
     def factory(cls, about_="This Project"):
         about_option = {
