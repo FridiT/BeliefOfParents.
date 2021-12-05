@@ -77,7 +77,8 @@ class Menu:
         self.ch.gender_and_name()
 
     # Factory Method to create a about window
-    def factory(self, about_="This Project"):
+    @classmethod
+    def factory(cls, about_="This Project"):
         about_option = {
             "Me": AboutMe,
             "This Project": AboutThisProject,
