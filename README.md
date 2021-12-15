@@ -9,4 +9,4 @@ This project contains some self-questions about child readiness for sleep and
 recommendations for self-memorization that will raise the parent's belief in his 
 expectations.
 
-https://github.com/FridiT/BeliefOfParents.git
+https://github.com/FridiT/BeliefOfParents..git
